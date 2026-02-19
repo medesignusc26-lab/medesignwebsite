@@ -65,7 +65,7 @@ function ProjectsSection() {
     {
       name: 'Independent A',
       leader: null,
-      members: ['Chloe Xia', 'Claire Schulze', 'Aiden Pan', 'Janelle Hurtado', 'Kaavya Gupta'],
+      members: ['Chloe Xia', 'Claire Schulze', 'Aiden Pan', 'Janelle Hurtado', 'Kaavya Gupta', 'Rohan Shrestha'],
       description: 'A way to stabilize the contraceptive implant from migrating in order to prevent damage to muscular or neurovascular structures in the body.',
       status: 'Active'
     },
