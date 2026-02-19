@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router';
 import { motion } from 'motion/react';
 import { Menu, X, Heart } from 'lucide-react';
-import heartbeatPattern from 'figma:asset/d65ffa27844b18f43e95a2810cbd35d1a78b65f0.png';
+import heartbeatPattern from '@/assets/d65ffa27844b18f43e95a2810cbd35d1a78b65f0.png';
 import ScrollToTop from './components/ScrollToTop';
 
 function LoadingScreen() {

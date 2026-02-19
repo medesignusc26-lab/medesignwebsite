@@ -1,26 +1,17 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Mail, Linkedin, Facebook, Instagram } from 'lucide-react';
-import audrey from 'figma:asset/299df444778c19371482b0b906a2d83cef95e190.png';
-import audreyLauCutout from 'figma:asset/a42de094dce3acdec21d3867d03c593a67ffeeb6.png';
-import sammita from 'figma:asset/658def60ff414626e3dabcebca86540972c866f9.png';
-import sammitaCutout from 'figma:asset/74c7a4ace26f09377cdb53e9e79382f323a34cc0.png';
-import sarah from 'figma:asset/754f2f669466013e304137ec499e007f1b2cc731.png';
-import sarahCutout from 'figma:asset/e52b3dbf635e5900f34577819cbd697682e529c8.png';
-import jessica from 'figma:asset/7b4a67f2f6fb76c879c6c0e52b4f2ab31866fd00.png';
-import jessicaCutout from 'figma:asset/d37fe1846146fd74d2b62716216bb137ca273bc9.png';
-import audreyChang from 'figma:asset/0df8bf4c90da6e81fb4f7e6b66f82e18c06ed4d3.png';
-import audreyChangCutout from 'figma:asset/e47bad47ed999053ab6f5d2bfd5dea29398bab9d.png';
-import paco from 'figma:asset/4f1e4698f5de3e45b55f2e5b96ac2d76b4dfd142.png';
-import pacoCutout from 'figma:asset/4ce2a73330291a77ba9a56d5258ba09417ff15ac.png';
-import ishanni from 'figma:asset/7e0fb56f82e1f5c7d15a29b2a83fc70b5e0c086d.png';
-import ishanniCutout from 'figma:asset/c1c309aedbfcdd9974904e7476ca1a9c3c75336f.png';
-import eddie from 'figma:asset/e51de2c2f2a7d6cd29c3f0bdfc2dea1e1e0edd5d.png';
-import eddieCutout from 'figma:asset/7cc6d44b3a9d5e135b28ff9ee59fc2dbebac2164.png';
-import seanLee from 'figma:asset/a852776e8c80486db79a373f3f7c975bb02aeb41.png';
-import seanLeeCutout from 'figma:asset/a852776e8c80486db79a373f3f7c975bb02aeb41.png';
-import toshi from 'figma:asset/f9e9e6bd3b2f79a62dd14a0f48be66c12cf3ca5b.png';
-import toshiCutout from 'figma:asset/2b8db8cc73e80f06bc5bbf62851070a63e768191.png';
+// Import available cutout images from assets
+import audreyLauCutout from '@/assets/a42de094dce3acdec21d3867d03c593a67ffeeb6.png';
+import sammitaCutout from '@/assets/74c7a4ace26f09377cdb53e9e79382f323a34cc0.png';
+import sarahCutout from '@/assets/e52b3dbf635e5900f34577819cbd697682e529c8.png';
+import jessicaCutout from '@/assets/d37fe1846146fd74d2b62716216bb137ca273bc9.png';
+import audreyChangCutout from '@/assets/e47bad47ed999053ab6f5d2bfd5dea29398bab9d.png';
+import pacoCutout from '@/assets/4ce2a73330291a77ba9a56d5258ba09417ff15ac.png';
+import ishanniCutout from '@/assets/c1c309aedbfcdd9974904e7476ca1a9c3c75336f.png';
+import eddieCutout from '@/assets/7cc6d44b3a9d5e135b28ff9ee59fc2dbebac2164.png';
+import seanLeeCutout from '@/assets/a852776e8c80486db79a373f3f7c975bb02aeb41.png';
+import toshiCutout from '@/assets/2b8db8cc73e80f06bc5bbf62851070a63e768191.png';
 
 export default function Team() {
   return (
@@ -46,7 +37,7 @@ function ExecutiveBoard() {
       year: 'Senior',
       email: 'lauaudre@usc.edu',
       linkedin: '#',
-      image: audrey,
+      image: audreyLauCutout,
       cutout: audreyLauCutout,
     },
     {
@@ -56,7 +47,7 @@ function ExecutiveBoard() {
       year: 'Senior',
       email: 'shurpfoo@usc.edu',
       linkedin: '#',
-      image: sammita,
+      image: sammitaCutout,
       cutout: sammitaCutout,
     },
     {
@@ -67,7 +58,7 @@ function ExecutiveBoard() {
       year: 'Sophomore',
       email: 'srundqui@usc.edu',
       linkedin: '#',
-      image: sarah,
+      image: sarahCutout,
       cutout: sarahCutout,
     },
     {
@@ -77,7 +68,7 @@ function ExecutiveBoard() {
       year: 'Senior',
       email: 'jcmai@usc.edu',
       linkedin: '#',
-      image: jessica,
+      image: jessicaCutout,
       cutout: jessicaCutout,
     },
     {
@@ -87,7 +78,7 @@ function ExecutiveBoard() {
       year: 'Senior',
       email: 'audreyc@usc.edu',
       linkedin: '#',
-      image: audreyChang,
+      image: audreyChangCutout,
       cutout: audreyChangCutout,
     },
     {
@@ -98,7 +89,7 @@ function ExecutiveBoard() {
       year: 'Senior',
       email: 'pborrome@usc.edu',
       linkedin: '#',
-      image: paco,
+      image: pacoCutout,
       cutout: pacoCutout,
     },
     {
@@ -109,7 +100,7 @@ function ExecutiveBoard() {
       year: 'Senior',
       email: 'ipradeep@usc.edu',
       linkedin: '#',
-      image: ishanni,
+      image: ishanniCutout,
       cutout: ishanniCutout,
     },
     {
@@ -119,7 +110,7 @@ function ExecutiveBoard() {
       year: 'Senior',
       email: 'eddiekim@usc.edu',
       linkedin: '#',
-      image: eddie,
+      image: eddieCutout,
       cutout: eddieCutout,
     },
     {
@@ -129,7 +120,7 @@ function ExecutiveBoard() {
       year: 'Freshman',
       email: 'slee9547@usc.edu',
       linkedin: 'https://www.linkedin.com/in/sean-long-siang-lee-9bbab8373/',
-      image: seanLee,
+      image: seanLeeCutout,
       cutout: seanLeeCutout,
     },
     {
@@ -140,7 +131,7 @@ function ExecutiveBoard() {
       year: 'Freshman',
       email: 'tnagai@usc.edu',
       linkedin: '#',
-      image: toshi,
+      image: toshiCutout,
       cutout: toshiCutout,
     },
   ];

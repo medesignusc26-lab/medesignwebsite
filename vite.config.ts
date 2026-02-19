@@ -5,8 +5,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [
-    // The React and Tailwind plugins are both required for Make, even if
-    // Tailwind is not being actively used – do not remove them
     react(),
     tailwindcss(),
   ],
@@ -14,9 +12,25 @@ export default defineConfig({
     alias: {
       // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
+      // Resolve Figma asset imports to src/assets directory
+      'figma:asset': path.resolve(__dirname, './src/assets'),
     },
   },
-
-  // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
+  // File types to support raw imports
   assetsInclude: ['**/*.svg', '**/*.csv'],
+  build: {
+    // Ensure assets are properly handled
+    assetsDir: 'assets',
+    // Generate source maps for debugging
+    sourcemap: false,
+    // Optimize chunk splitting
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router'],
+          motion: ['motion'],
+        },
+      },
+    },
+  },
 })
