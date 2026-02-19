@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Heart, Mail, Linkedin, Facebook, Instagram } from 'lucide-react';
-import amiUSCLogo from '@/assets/51ef3735e4acf9d924a34e88585d99c74690f867.jpg';
+import amiUSCLogo from '@/assets/51ef3735e4acf9d924a34e88585d99c74690f867.png';
 
 export default function Sponsors() {
   return (
