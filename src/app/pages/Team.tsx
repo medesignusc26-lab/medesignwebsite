@@ -41,7 +41,7 @@ function ExecutiveBoard() {
       cutout: audreyLauCutout,
     },
     {
-      name: 'Sammita Suripeddi',
+      name: 'Samhita Suripeddi',
       role: 'Co-President',
       major: 'Biomedical Engineering',
       year: 'Senior',
@@ -93,7 +93,7 @@ function ExecutiveBoard() {
       cutout: pacoCutout,
     },
     {
-      name: 'Ishanni Pradeep',
+      name: 'Ishaani Pradeep',
       role: 'VP/EDI Liaison',
       major: 'Biomedical Engineering',
       minor: 'Cinematic Arts',
