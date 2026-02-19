@@ -2,8 +2,8 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'motion/react';
 import { Users, BookOpen, Briefcase, Mail, Linkedin, Facebook, Instagram, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
-import medesignLogo from '@/assets/179d2a20003c71b4bead4df1dd9ff60e8e6a4edf.png';
-import heartbeatPattern from '@/assets/d65ffa27844b18f43e95a2810cbd35d1a78b65f0.png';
+import medesignLogo from '@/assets/179d2a20003c71b4bead4df1dd9ff60e8e6a4edf.jpg';
+import heartbeatPattern from '@/assets/d65ffa27844b18f43e95a2810cbd35d1a78b65f0.jpg';
 
 export default function Home() {
   const containerRef = useRef(null);

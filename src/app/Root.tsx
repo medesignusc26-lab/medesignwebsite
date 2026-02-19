@@ -2,185 +2,70 @@ import { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router';
 import { motion } from 'motion/react';
 import { Menu, X, Heart } from 'lucide-react';
-import heartbeatPattern from '@/assets/d65ffa27844b18f43e95a2810cbd35d1a78b65f0.png';
+import heartbeatPattern from '@/assets/d65ffa27844b18f43e95a2810cbd35d1a78b65f0.jpg';
 import ScrollToTop from './components/ScrollToTop';
 
-function LoadingScreen() {
+function LoadingScreen({ isMobile }: { isMobile: boolean }) {
   return (
     <motion.div 
       className="fixed inset-0 bg-black flex items-center justify-center z-[100]"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
-      {/* Animated gradient background - same as home page */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {/* Cardinal Red gradient blob */}
-        <motion.div
-          className="absolute w-[800px] h-[800px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(157, 34, 53, 0.15) 0%, rgba(157, 34, 53, 0.05) 40%, transparent 70%)',
-            filter: 'blur(60px)',
-          }}
-          animate={{
-            x: ['-20%', '120%', '-20%'],
-            y: ['0%', '60%', '0%'],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-
-        {/* Darker Gold gradient blob */}
-        <motion.div
-          className="absolute w-[700px] h-[700px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(180, 151, 90, 0.12) 0%, rgba(180, 151, 90, 0.04) 40%, transparent 70%)',
-            filter: 'blur(60px)',
-          }}
-          animate={{
-            x: ['100%', '-20%', '100%'],
-            y: ['80%', '10%', '80%'],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-
-        {/* Purple gradient blob */}
-        <motion.div
-          className="absolute w-[600px] h-[600px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, rgba(138, 43, 226, 0.03) 40%, transparent 70%)',
-            filter: 'blur(60px)',
-          }}
-          animate={{
-            x: ['40%', '70%', '40%'],
-            y: ['-10%', '90%', '-10%'],
-          }}
-          transition={{
-            duration: 28,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      </div>
-
-      {/* Texture overlay */}
-      <div className="fixed inset-0 opacity-[0.02] pointer-events-none mix-blend-overlay"
-        style={{
-          backgroundImage: 'url("data:image/svg+xml,%3Csvg width="200" height="200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" /%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" /%3E%3C/svg%3E")',
-        }}
-      />
-      
-      {/* Grain texture overlay */}
+      {/* Simple gradient background - no animation on mobile */}
       <div 
-        className="fixed inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay"
+        className="fixed inset-0 pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          backgroundRepeat: 'repeat',
+          background: 'radial-gradient(circle at 50% 50%, rgba(157, 34, 53, 0.15) 0%, rgba(0, 0, 0, 1) 70%)',
         }}
       />
-
-      {/* Subtle background heartbeat pattern */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-[0.025]">
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px]"
-          animate={{
-            scale: [1, 1.08, 1],
-          }}
-          transition={{
-            duration: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <img 
-            src={heartbeatPattern} 
-            alt="" 
-            className="w-full h-full object-contain opacity-50"
-          />
-        </motion.div>
-      </div>
 
       {/* Logo */}
       <div className="relative z-10 text-center">
         <motion.div
-          initial={{ scale: 0.5, opacity: 0 }}
+          initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.3 }}
         >
-          {/* Heartbeat pattern icon */}
-          <motion.div
-            className="mb-8 flex justify-center"
-            animate={{
-              scale: [1, 1.05, 1],
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="relative w-24 h-24">
-              {/* Subtle glow */}
-              <div className="absolute inset-0 blur-2xl bg-[#9d2235]/30 rounded-full scale-150" />
-              
-              {/* Pattern container */}
-              <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-5 backdrop-blur-sm border border-white/[0.15] shadow-lg">
+          {/* Heartbeat pattern icon - simplified on mobile */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative w-20 h-20 md:w-24 md:h-24">
+              <div className="absolute inset-0 blur-xl bg-[#9d2235]/30 rounded-full scale-125" />
+              <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-4 border border-white/[0.15]">
                 <img 
                   src={heartbeatPattern} 
                   alt="Heartbeat Pattern" 
                   className="w-full h-full object-contain opacity-80"
-                  style={{
-                    filter: 'drop-shadow(0 0 12px rgba(157, 34, 53, 0.6))'
-                  }}
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="mb-2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            <div className="text-2xl tracking-[0.2em] text-[#9d2235] font-medium mb-1" style={{ fontFamily: 'Inter, sans-serif' }}>
-              USC
-            </div>
-          </motion.div>
+          <div className="text-xl md:text-2xl tracking-[0.2em] text-[#9d2235] font-medium mb-1" style={{ fontFamily: 'Inter, sans-serif' }}>
+            USC
+          </div>
 
-          <h1 className="text-6xl md:text-7xl font-black text-white mb-2" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-2" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
             MEDesign
           </h1>
           
-          <motion.div
-            className="text-sm tracking-[0.3em] text-white/40"
+          <div
+            className="text-xs md:text-sm tracking-[0.3em] text-white/40"
             style={{ fontFamily: 'Inter, sans-serif' }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
           >
             MEDICAL DEVICE INNOVATION
-          </motion.div>
+          </div>
 
           {/* Loading bar */}
           <motion.div 
-            className="mt-8 h-0.5 bg-white/10 rounded-full overflow-hidden max-w-xs mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            className="mt-6 h-0.5 bg-white/10 rounded-full overflow-hidden max-w-[200px] md:max-w-xs mx-auto"
           >
             <motion.div
-              className="h-full bg-gradient-to-r from-[#9d2235] to-[#9d2235]"
+              className="h-full bg-[#9d2235]"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: isMobile ? 0.8 : 1.5, ease: "easeOut" }}
             />
           </motion.div>
         </motion.div>
@@ -193,22 +78,32 @@ export default function Root() {
   const [showLoading, setShowLoading] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLoading(false);
-    }, 2000);
+    }, isMobile ? 1000 : 2000); // Shorter loading on mobile
     return () => clearTimeout(timer);
-  }, []);
+  }, [isMobile]);
 
-  // Track mouse position for cursor gradient effect
+  // Track mouse position for cursor gradient effect - DISABLED on mobile
   useEffect(() => {
+    if (isMobile) return; // Skip on mobile for performance
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     // Smooth scroll behavior
@@ -219,190 +114,109 @@ export default function Root() {
   }, []);
 
   if (showLoading) {
-    return <LoadingScreen />;
+    return <LoadingScreen isMobile={isMobile} />;
   }
 
   return (
     <div className="relative bg-black text-white overflow-hidden min-h-screen" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-      {/* Animated gradient background - dynamic color shifting */}
+      {/* Static gradient background on mobile, animated on desktop */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              'radial-gradient(circle at 20% 50%, rgba(157, 34, 53, 0.12) 0%, rgba(0, 0, 0, 1) 50%)',
-              'radial-gradient(circle at 80% 50%, rgba(157, 34, 53, 0.15) 0%, rgba(0, 0, 0, 1) 50%)',
-              'radial-gradient(circle at 50% 80%, rgba(157, 34, 53, 0.12) 0%, rgba(0, 0, 0, 1) 50%)',
-              'radial-gradient(circle at 50% 20%, rgba(157, 34, 53, 0.15) 0%, rgba(0, 0, 0, 1) 50%)',
-              'radial-gradient(circle at 20% 50%, rgba(157, 34, 53, 0.12) 0%, rgba(0, 0, 0, 1) 50%)',
-            ],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        {/* Secondary gradient layer - darker gold */}
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              'radial-gradient(circle at 70% 30%, rgba(140, 100, 0, 0.03) 0%, transparent 40%)',
-              'radial-gradient(circle at 30% 70%, rgba(140, 100, 0, 0.04) 0%, transparent 40%)',
-              'radial-gradient(circle at 60% 60%, rgba(140, 100, 0, 0.03) 0%, transparent 40%)',
-              'radial-gradient(circle at 40% 40%, rgba(140, 100, 0, 0.04) 0%, transparent 40%)',
-              'radial-gradient(circle at 70% 30%, rgba(140, 100, 0, 0.03) 0%, transparent 40%)',
-            ],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        {/* Purple gradient layer */}
-        <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              'radial-gradient(circle at 40% 60%, rgba(100, 50, 140, 0.04) 0%, transparent 35%)',
-              'radial-gradient(circle at 80% 40%, rgba(100, 50, 140, 0.05) 0%, transparent 35%)',
-              'radial-gradient(circle at 30% 30%, rgba(100, 50, 140, 0.04) 0%, transparent 35%)',
-              'radial-gradient(circle at 60% 80%, rgba(100, 50, 140, 0.05) 0%, transparent 35%)',
-              'radial-gradient(circle at 40% 60%, rgba(100, 50, 140, 0.04) 0%, transparent 35%)',
-            ],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        {isMobile ? (
+          // Simple static gradient for mobile - no animations
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(circle at 50% 30%, rgba(157, 34, 53, 0.12) 0%, rgba(0, 0, 0, 1) 60%)',
+            }}
+          />
+        ) : (
+          // Animated gradient for desktop
+          <motion.div
+            className="absolute inset-0"
+            animate={{
+              background: [
+                'radial-gradient(circle at 20% 50%, rgba(157, 34, 53, 0.12) 0%, rgba(0, 0, 0, 1) 50%)',
+                'radial-gradient(circle at 80% 50%, rgba(157, 34, 53, 0.15) 0%, rgba(0, 0, 0, 1) 50%)',
+                'radial-gradient(circle at 50% 80%, rgba(157, 34, 53, 0.12) 0%, rgba(0, 0, 0, 1) 50%)',
+                'radial-gradient(circle at 20% 50%, rgba(157, 34, 53, 0.12) 0%, rgba(0, 0, 0, 1) 50%)',
+              ],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        )}
       </div>
       
-      {/* Cursor gradient disruption effect */}
-      <motion.div
-        className="fixed pointer-events-none z-[1]"
-        animate={{
-          x: mousePosition.x - 200,
-          y: mousePosition.y - 200,
-        }}
-        transition={{
-          type: "spring",
-          damping: 30,
-          stiffness: 200,
-          mass: 0.5
-        }}
-      >
-        <div 
-          className="w-[400px] h-[400px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(157, 34, 53, 0.15) 0%, transparent 60%)',
-            filter: 'blur(60px)',
-            mixBlendMode: 'screen',
-          }}
-        />
-      </motion.div>
-
-      {/* Texture overlay */}
-      <div className="fixed inset-0 opacity-[0.02] pointer-events-none mix-blend-overlay"
-        style={{
-          backgroundImage: 'url("data:image/svg+xml,%3Csvg width="200" height="200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" /%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)" /%3E%3C/svg%3E")',
-        }}
-      />
-
-      {/* Animated pumping heart in background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-[0.03]">
-        {/* Single pulsing heartbeat pattern - upright */}
+      {/* Cursor gradient effect - DESKTOP ONLY */}
+      {!isMobile && (
         <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[600px] md:h-[600px]"
+          className="fixed pointer-events-none z-[1] hidden md:block"
           animate={{
-            scale: [1, 1.08, 1],
+            x: mousePosition.x - 200,
+            y: mousePosition.y - 200,
           }}
           transition={{
-            duration: 2.5,
-            repeat: Infinity,
-            ease: "easeInOut"
+            type: "spring",
+            damping: 30,
+            stiffness: 200,
+            mass: 0.5
           }}
         >
+          <div 
+            className="w-[400px] h-[400px] rounded-full"
+            style={{
+              background: 'radial-gradient(circle, rgba(157, 34, 53, 0.15) 0%, transparent 60%)',
+              filter: 'blur(60px)',
+            }}
+          />
+        </motion.div>
+      )}
+
+      {/* Heartbeat pattern - simplified on mobile */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-[0.03]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] md:w-[500px] md:h-[500px]">
           <img 
             src={heartbeatPattern} 
             alt="" 
             className="w-full h-full object-contain opacity-50"
-            style={{
-              filter: 'drop-shadow(0 0 30px rgba(157, 34, 53, 0.4))'
+          />
+        </div>
+      </div>
+
+      {/* Moving gradient orbs - DESKTOP ONLY */}
+      {!isMobile && (
+        <div className="fixed inset-0 overflow-hidden pointer-events-none hidden md:block">
+          <motion.div 
+            className="absolute w-[500px] h-[500px] bg-[#9d2235]/10 rounded-full blur-[100px]"
+            animate={{
+              x: ['-20%', '100%'],
+              y: ['-10%', '50%'],
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
             }}
           />
-        </motion.div>
-      </div>
-      
-      {/* Grain texture overlay */}
-      <div 
-        className="fixed inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-          backgroundRepeat: 'repeat',
-        }}
-      />
-
-      {/* Moving gradient orbs - USC cardinal red theme */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          className="absolute w-[700px] h-[700px] bg-[#9d2235]/12 rounded-full blur-[140px]"
-          animate={{
-            x: ['-20%', '120%'],
-            y: ['-10%', '50%'],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute w-[900px] h-[900px] bg-[#9d2235]/10 rounded-full blur-[160px]"
-          animate={{
-            x: ['100%', '-30%'],
-            y: ['80%', '-20%'],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute w-[500px] h-[500px] bg-[#8c6400]/08 rounded-full blur-[120px]"
-          animate={{
-            x: ['50%', '10%'],
-            y: ['10%', '90%'],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute w-[600px] h-[600px] bg-[#64328c]/08 rounded-full blur-[130px]"
-          animate={{
-            x: ['10%', '90%'],
-            y: ['60%', '10%'],
-          }}
-          transition={{
-            duration: 28,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut"
-          }}
-        />
-      </div>
+          <motion.div 
+            className="absolute w-[600px] h-[600px] bg-[#9d2235]/8 rounded-full blur-[120px]"
+            animate={{
+              x: ['100%', '-20%'],
+              y: ['80%', '-10%'],
+            }}
+            transition={{
+              duration: 35,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
+            }}
+          />
+        </div>
+      )}
 
       {/* Navigation - asymmetric design */}
       <motion.nav

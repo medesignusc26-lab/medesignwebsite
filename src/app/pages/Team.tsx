@@ -1,17 +1,17 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Mail, Linkedin, Facebook, Instagram } from 'lucide-react';
-// Import available cutout images from assets
-import audreyLauCutout from '@/assets/a42de094dce3acdec21d3867d03c593a67ffeeb6.png';
-import sammitaCutout from '@/assets/74c7a4ace26f09377cdb53e9e79382f323a34cc0.png';
-import sarahCutout from '@/assets/e52b3dbf635e5900f34577819cbd697682e529c8.png';
-import jessicaCutout from '@/assets/d37fe1846146fd74d2b62716216bb137ca273bc9.png';
-import audreyChangCutout from '@/assets/e47bad47ed999053ab6f5d2bfd5dea29398bab9d.png';
-import pacoCutout from '@/assets/4ce2a73330291a77ba9a56d5258ba09417ff15ac.png';
-import ishanniCutout from '@/assets/c1c309aedbfcdd9974904e7476ca1a9c3c75336f.png';
-import eddieCutout from '@/assets/7cc6d44b3a9d5e135b28ff9ee59fc2dbebac2164.png';
-import seanLeeCutout from '@/assets/a852776e8c80486db79a373f3f7c975bb02aeb41.png';
-import toshiCutout from '@/assets/2b8db8cc73e80f06bc5bbf62851070a63e768191.png';
+// Import available cutout images from assets (optimized JPG)
+import audreyLauCutout from '@/assets/a42de094dce3acdec21d3867d03c593a67ffeeb6.jpg';
+import sammitaCutout from '@/assets/74c7a4ace26f09377cdb53e9e79382f323a34cc0.jpg';
+import sarahCutout from '@/assets/e52b3dbf635e5900f34577819cbd697682e529c8.jpg';
+import jessicaCutout from '@/assets/d37fe1846146fd74d2b62716216bb137ca273bc9.jpg';
+import audreyChangCutout from '@/assets/e47bad47ed999053ab6f5d2bfd5dea29398bab9d.jpg';
+import pacoCutout from '@/assets/4ce2a73330291a77ba9a56d5258ba09417ff15ac.jpg';
+import ishanniCutout from '@/assets/c1c309aedbfcdd9974904e7476ca1a9c3c75336f.jpg';
+import eddieCutout from '@/assets/7cc6d44b3a9d5e135b28ff9ee59fc2dbebac2164.jpg';
+import seanLeeCutout from '@/assets/a852776e8c80486db79a373f3f7c975bb02aeb41.jpg';
+import toshiCutout from '@/assets/2b8db8cc73e80f06bc5bbf62851070a63e768191.jpg';
 
 export default function Team() {
   return (
