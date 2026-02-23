@@ -238,7 +238,7 @@ export default function Root() {
                     MEDesign
                   </div>
                   <div className="text-[9px] tracking-[0.2em] text-white/40 mt-[-2px]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                    USC
+                    USC 
                   </div>
                 </motion.div>
               </Link>
