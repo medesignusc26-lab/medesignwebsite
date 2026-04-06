@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Heart, Mail, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Link } from 'react-router';
 import amiUSCLogo from '@/assets/51ef3735e4acf9d924a34e88585d99c74690f867.png';
 
 export default function Sponsors() {
@@ -270,16 +271,32 @@ function Footer() {
               EXPLORE
             </h4>
             <div className="space-y-2">
-              {['Projects', 'Team', 'Resources', 'Contact'].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="block text-sm text-white/50 hover:text-white transition-colors"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                >
-                  {link}
-                </a>
-              ))}
+              {[
+                { label: 'Projects', to: '/projects' },
+                { label: 'Team', to: '/team' },
+                { label: 'Sponsors', to: '/sponsors' },
+                { label: 'Contact', to: 'mailto:medesign@usc.edu' },
+              ].map((link) =>
+                link.to.startsWith('mailto:') ? (
+                  <a
+                    key={link.label}
+                    href={link.to}
+                    className="block text-sm text-white/50 hover:text-white transition-colors"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    to={link.to}
+                    className="block text-sm text-white/50 hover:text-white transition-colors"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </div>
           </div>
 

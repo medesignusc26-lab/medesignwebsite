@@ -448,16 +448,32 @@ function Footer() {
               EXPLORE
             </h4>
             <div className="space-y-2">
-              {['Projects', 'Team', 'Resources', 'Contact'].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="block text-sm text-white/50 hover:text-white transition-colors"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                >
-                  {link}
-                </a>
-              ))}
+              {[
+                { label: 'Projects', to: '/projects' },
+                { label: 'Team', to: '/team' },
+                { label: 'Sponsors', to: '/sponsors' },
+                { label: 'Contact', to: 'mailto:medesign@usc.edu' },
+              ].map((link) =>
+                link.to.startsWith('mailto:') ? (
+                  <a
+                    key={link.label}
+                    href={link.to}
+                    className="block text-sm text-white/50 hover:text-white transition-colors"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    to={link.to}
+                    className="block text-sm text-white/50 hover:text-white transition-colors"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </div>
           </div>
 

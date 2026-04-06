@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Mail, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { Link } from 'react-router';
 // Import available cutout images from assets (optimized PNG with transparency)
 import audreyLauCutout from '@/assets/a42de094dce3acdec21d3867d03c593a67ffeeb6.png';
 import sammitaCutout from '@/assets/74c7a4ace26f09377cdb53e9e79382f323a34cc0.png';
@@ -317,16 +318,32 @@ function Footer() {
               EXPLORE
             </h4>
             <div className="space-y-2">
-              {['Projects', 'Team', 'Resources', 'Contact'].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="block text-sm text-white/50 hover:text-white transition-colors"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
-                >
-                  {link}
-                </a>
-              ))}
+              {[
+                { label: 'Projects', to: '/projects' },
+                { label: 'Team', to: '/team' },
+                { label: 'Sponsors', to: '/sponsors' },
+                { label: 'Contact', to: 'mailto:medesign@usc.edu' },
+              ].map((link) =>
+                link.to.startsWith('mailto:') ? (
+                  <a
+                    key={link.label}
+                    href={link.to}
+                    className="block text-sm text-white/50 hover:text-white transition-colors"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    to={link.to}
+                    className="block text-sm text-white/50 hover:text-white transition-colors"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </div>
           </div>
 
