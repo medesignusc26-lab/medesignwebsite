@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import Root from "./Root";
 import Home from "./pages/Home";
 import Team from "./pages/Team";
@@ -25,5 +25,9 @@ export const router = createBrowserRouter([
       { path: "team", Component: Team },
       { path: "sponsors", Component: Sponsors },
     ],
+  },
+  {
+    path: "/index.html",
+    element: <Navigate to="/" replace />,
   },
 ]);
