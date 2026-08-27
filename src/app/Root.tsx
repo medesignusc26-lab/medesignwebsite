@@ -257,7 +257,7 @@ export default function Root() {
                   </Link>
                 ))}
                 <motion.a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSflljqcB2uXECcqxDvtGPUZC9bqxzunY8SC3zilLCaTPTyY6A/viewform?usp=send_form"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScgKzQqDRFuLBFW52iPGPvB7fC86KuCEkrTX5nL5x4dUa3Qmw/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
