@@ -40,20 +40,20 @@ export default function Home() {
               </div>
 
               <h1 className="mb-6" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
-                <div className="text-[68px] md:text-[100px] leading-[0.8] text-white">
+                <div className="text-[52px] sm:text-[68px] md:text-[100px] leading-[0.8] text-white">
                   MEDesign
                 </div>
               </h1>
 
-              <p className="text-lg md:text-xl text-white mb-3 mx-auto leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-xs sm:text-lg md:text-xl text-white mb-3 mx-auto leading-relaxed tracking-tight sm:tracking-normal whitespace-nowrap" style={{ fontFamily: 'Inter, sans-serif' }}>
                 USC's Premier Medical Device Design Organization.
               </p>
 
-              <p className="text-lg md:text-xl text-white mb-10 mx-auto leading-relaxed md:whitespace-nowrap" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-xs sm:text-lg md:text-xl text-white mb-10 mx-auto leading-relaxed tracking-tight sm:tracking-normal whitespace-nowrap" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Transforming healthcare through hands-on medical device innovation
               </p>
 
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-4 md:mt-0">
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLScgKzQqDRFuLBFW52iPGPvB7fC86KuCEkrTX5nL5x4dUa3Qmw/viewform"
                   target="_blank"
@@ -114,8 +114,8 @@ function AboutSection() {
             className="md:col-span-4"
           >
             <div className="sticky top-32 text-center md:text-left">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
-                ABOUT<br />US
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 whitespace-nowrap" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
+                ABOUT US
               </h2>
               <p className="text-sm text-white/40 tracking-wide" style={{ fontFamily: 'Inter, sans-serif' }}>
                 EST. 2015 / LOS ANGELES
@@ -148,7 +148,7 @@ function AboutSection() {
             </div>
 
             {/* Stats row - no cards, just numbers */}
-            <div className="flex flex-wrap gap-x-10 gap-y-6 mt-12">
+            <div className="flex flex-wrap justify-center md:justify-start gap-x-10 gap-y-6 mt-12">
               {[
                 { label: 'Founded', value: '2015' },
                 { label: 'Projects', value: '40+' },
