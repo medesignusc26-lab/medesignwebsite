@@ -144,7 +144,8 @@ export function AuroraBackground() {
       canvas.height = height;
       buffer.width = width;
       buffer.height = height;
-      centerY = height * 0.5;
+      // Nudge the aurora's vertical center down slightly on mobile.
+      centerY = height * (width < 768 ? 0.54 : 0.5);
     }
 
     resize();
@@ -165,9 +166,10 @@ export function AuroraBackground() {
     if (!canvas) return;
 
     function handleScroll() {
+      const baseOpacity = window.innerWidth < 768 ? 0.7 : 0.5;
       const fadeDistance = window.innerHeight * 0.9;
       const progress = Math.min(window.scrollY / fadeDistance, 1);
-      canvas!.style.opacity = String(0.5 * (1 - progress));
+      canvas!.style.opacity = String(baseOpacity * (1 - progress));
     }
 
     handleScroll();
