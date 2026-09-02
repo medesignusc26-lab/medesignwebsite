@@ -92,45 +92,8 @@ function ProjectsSection() {
             OUR <span className="text-[#9d2235]">PROJECTS</span>
           </h2>
           <p className="text-center text-lg text-white/60 max-w-2xl mx-auto" style={{ fontFamily: 'Inter, sans-serif' }}>
-            Innovative medical device solutions created by our talented design teams
+            Innovative medical device solutions created by student-run design teams
           </p>
-        </motion.div>
-
-        {/* Design Teams Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
-          className="mb-16 max-w-4xl mx-auto"
-        >
-          <div className="relative backdrop-blur-md bg-white/[0.05] border border-white/[0.12] rounded-3xl p-12 hover:bg-white/[0.07] hover:border-[#9d2235]/30 transition-all duration-300">
-            {/* Glow effect */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#9d2235]/10 to-transparent opacity-50" />
-            
-            <div className="relative z-10 text-center">
-              <h3 
-                className="text-5xl font-black text-white mb-4" 
-                style={{ fontFamily: 'Archivo Black, sans-serif' }}
-              >
-                Design Teams
-              </h3>
-              <p 
-                className="text-2xl text-white/70 mb-3 font-medium" 
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                Run by Students, Led by Students
-              </p>
-              <p 
-                className="text-lg text-white/50" 
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                Learn more about our projects!
-              </p>
-            </div>
-
-            {/* Accent line */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#9d2235] to-transparent rounded-b-3xl" />
-          </div>
         </motion.div>
 
         {/* Projects Grid - Placeholder for actual projects */}
@@ -147,7 +110,7 @@ function ProjectsSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5 + idx * 0.1 }}
               whileHover={{ y: -8 }}
-              className="group relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-3xl p-8 hover:bg-white/[0.06] hover:border-[#9d2235]/40 transition-all duration-500 overflow-hidden"
+              className="group relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-sm p-8 hover:bg-white/[0.06] hover:border-[#9d2235]/40 transition-all duration-500 overflow-hidden"
             >
               {/* Gradient glow on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -168,7 +131,7 @@ function ProjectsSection() {
                 <div className="flex items-center justify-between mb-6">
                   <motion.span
                     whileHover={{ scale: 1.05 }}
-                    className="px-3 py-1 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-full text-xs tracking-[0.15em] text-[#9d2235] uppercase font-medium"
+                    className="px-3 py-1 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-sm text-xs tracking-[0.15em] text-[#9d2235] uppercase font-medium"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
                     {team.status}
@@ -219,7 +182,7 @@ function ProjectsSection() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : {}}
                         transition={{ duration: 0.3, delay: 0.6 + idx * 0.1 + memberIdx * 0.05 }}
-                        className="px-2.5 py-1 bg-white/[0.05] border border-white/[0.08] rounded-full text-xs text-white/60 hover:bg-white/[0.08] hover:text-white/90 transition-all duration-200"
+                        className="px-2.5 py-1 bg-white/[0.05] border border-white/[0.08] rounded-sm text-xs text-white/60 hover:bg-white/[0.08] hover:text-white/90 transition-all duration-200"
                         style={{ fontFamily: 'Inter, sans-serif' }}
                       >
                         {member}
@@ -285,7 +248,7 @@ function ProjectsSection() {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1.2, delay: 1.5 }}
-            className="relative bg-white/[0.02] border border-white/[0.05] rounded-3xl p-16 text-center overflow-hidden"
+            className="relative bg-white/[0.02] border border-white/[0.05] rounded-sm p-16 text-center overflow-hidden"
           >
             {/* Decorative gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#9d2235]/5 via-transparent to-transparent opacity-50" />
@@ -339,7 +302,7 @@ function ProjectsSection() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.6, delay: 1.6 + idx * 0.1 }}
-                    className="backdrop-blur-sm bg-white/[0.03] border border-white/[0.08] rounded-2xl px-8 py-6 min-w-[160px]"
+                    className="backdrop-blur-sm bg-white/[0.03] border border-white/[0.08] rounded-sm px-8 py-6 min-w-[160px]"
                   >
                     <div
                       className="text-3xl font-black text-[#9d2235] mb-2"
@@ -361,7 +324,7 @@ function ProjectsSection() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white/[0.05] border border-white/[0.1] rounded-full text-white font-medium hover:bg-white/[0.08] hover:border-[#9d2235]/50 transition-all duration-300"
+                  className="px-8 py-4 bg-white/[0.05] border border-white/[0.1] rounded-sm text-white font-medium hover:bg-white/[0.08] hover:border-[#9d2235]/50 transition-all duration-300"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   View Project Archive
@@ -370,8 +333,8 @@ function ProjectsSection() {
             </div>
 
             {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-[#9d2235]/20 rounded-tl-3xl" />
-            <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-[#9d2235]/20 rounded-br-3xl" />
+            <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-[#9d2235]/20 rounded-tl-sm" />
+            <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-[#9d2235]/20 rounded-br-sm" />
           </motion.div>
         </motion.div>
 
@@ -382,7 +345,7 @@ function ProjectsSection() {
           transition={{ duration: 1.2, delay: 0.8 }}
           className="mt-20 text-center"
         >
-          <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12 max-w-3xl mx-auto">
+          <div className="bg-white/[0.02] border border-white/[0.05] rounded-sm p-12 max-w-3xl mx-auto">
             <h3 className="text-3xl font-black mb-4" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
               Join a <span className="text-[#9d2235]">Design Team</span>
             </h3>
@@ -396,7 +359,7 @@ function ProjectsSection() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block px-8 py-4 bg-[#9d2235] rounded-full text-white font-medium shadow-lg shadow-[#9d2235]/20"
+              className="inline-block px-8 py-4 bg-[#9d2235] rounded-sm text-white font-medium shadow-lg shadow-[#9d2235]/20"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               Apply Now

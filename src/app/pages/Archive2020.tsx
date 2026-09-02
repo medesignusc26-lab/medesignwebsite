@@ -85,7 +85,7 @@ export default function Archive2020() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-6"
           >
-            <div className="inline-block px-4 py-2 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-full text-sm tracking-wide font-medium text-[#9d2235]" style={{ fontFamily: 'Inter, sans-serif' }}>
+            <div className="inline-block px-4 py-2 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-sm text-sm tracking-wide font-medium text-[#9d2235]" style={{ fontFamily: 'Inter, sans-serif' }}>
               Academic Year
             </div>
           </motion.div>
@@ -107,7 +107,7 @@ export default function Archive2020() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 + idx * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="group relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-3xl p-8 hover:bg-white/[0.06] hover:border-[#9d2235]/40 transition-all duration-500 overflow-hidden cursor-pointer h-full"
+                className="group relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-sm p-8 hover:bg-white/[0.06] hover:border-[#9d2235]/40 transition-all duration-500 overflow-hidden cursor-pointer h-full"
               >
                 {/* Gradient glow on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -160,7 +160,7 @@ export default function Archive2020() {
           transition={{ duration: 1.2, delay: 1 }}
           className="mt-20"
         >
-          <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12">
+          <div className="bg-white/[0.02] border border-white/[0.05] rounded-sm p-12">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {[
                 { number: '8', label: 'Projects Completed' },

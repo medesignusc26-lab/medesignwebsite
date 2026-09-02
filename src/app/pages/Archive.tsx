@@ -80,7 +80,7 @@ export default function Archive() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="inline-block mb-6"
           >
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#9d2235]/20 to-[#9d2235]/5 border border-[#9d2235]/30 flex items-center justify-center mx-auto">
+            <div className="w-20 h-20 rounded-sm bg-gradient-to-br from-[#9d2235]/20 to-[#9d2235]/5 border border-[#9d2235]/30 flex items-center justify-center mx-auto">
               <Award size={40} className="text-[#9d2235]" strokeWidth={1.5} />
             </div>
           </motion.div>
@@ -110,7 +110,7 @@ export default function Archive() {
                       item.highlight 
                         ? 'bg-gradient-to-br from-[#9d2235]/10 to-white/[0.03] border-[#9d2235]/30' 
                         : 'bg-white/[0.02] border-white/[0.08]'
-                    } border rounded-3xl p-8 hover:bg-white/[0.06] transition-all duration-500 overflow-hidden cursor-pointer`}
+                    } border rounded-sm p-8 hover:bg-white/[0.06] transition-all duration-500 overflow-hidden cursor-pointer`}
                   >
                     {/* Gradient glow on hover */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -123,7 +123,7 @@ export default function Archive() {
                         initial={{ x: -10, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.5 + idx * 0.1 }}
-                        className="absolute top-4 right-4 px-3 py-1 bg-[#9d2235] rounded-full text-xs font-medium"
+                        className="absolute top-4 right-4 px-3 py-1 bg-[#9d2235] rounded-sm text-xs font-medium"
                         style={{ fontFamily: 'Inter, sans-serif' }}
                       >
                         Latest
@@ -132,7 +132,7 @@ export default function Archive() {
 
                     <div className="relative z-10">
                       {/* Calendar Icon */}
-                      <div className={`w-14 h-14 rounded-xl ${
+                      <div className={`w-14 h-14 rounded-sm ${
                         item.highlight 
                           ? 'bg-[#9d2235]/20 border-[#9d2235]/30' 
                           : 'bg-white/[0.05] border-white/[0.1]'
@@ -179,14 +179,14 @@ export default function Archive() {
                 </Link>
               ) : (
                 <motion.div
-                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-3xl p-8 overflow-hidden opacity-60"
+                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-sm p-8 overflow-hidden opacity-60"
                 >
                   {/* Coming Soon Badge */}
                   <motion.div
                     initial={{ x: -10, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 + idx * 0.1 }}
-                    className="absolute top-4 right-4 px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white/70"
+                    className="absolute top-4 right-4 px-3 py-1 bg-white/10 border border-white/20 rounded-sm text-xs font-medium text-white/70"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
                     Coming Soon
@@ -194,7 +194,7 @@ export default function Archive() {
 
                   <div className="relative z-10">
                     {/* Calendar Icon */}
-                    <div className="w-14 h-14 rounded-xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center mb-6">
+                    <div className="w-14 h-14 rounded-sm bg-white/[0.05] border border-white/[0.1] flex items-center justify-center mb-6">
                       <Calendar size={28} className="text-white/40" strokeWidth={1.5} />
                     </div>
 
@@ -232,7 +232,7 @@ export default function Archive() {
           transition={{ duration: 1.2, delay: 0.8 }}
           className="mt-20 max-w-4xl mx-auto"
         >
-          <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12">
+          <div className="bg-white/[0.02] border border-white/[0.05] rounded-sm p-12">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {[
                 { number: '50+', label: 'Total Projects' },

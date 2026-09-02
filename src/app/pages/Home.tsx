@@ -3,236 +3,105 @@ import { motion, useScroll, useTransform, useInView } from 'motion/react';
 import { Users, BookOpen, Briefcase, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { Footer } from '../components/Footer';
-import medesignLogo from '@/assets/179d2a20003c71b4bead4df1dd9ff60e8e6a4edf.png';
-import heartbeatPattern from '@/assets/d65ffa27844b18f43e95a2810cbd35d1a78b65f0.png';
 
 export default function Home() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
+  // The hero stays pinned to the viewport for one scroll-height's worth of
+  // scrolling; instead of the hero content translating/scaling away, it
+  // blurs and a black overlay covers it (and the ambient aura behind it),
+  // while the sections below scroll up on top of it.
+  const heroPinRef = useRef(null);
+  const { scrollYProgress: heroProgress } = useScroll({
+    target: heroPinRef,
+    offset: ["start start", "end start"],
   });
 
-  // Hero section: visible at start, fades out as we scroll
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2, 0.25], [1, 0.3, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.25], [1, 0.95]);
-
-  // About section: fades in after hero, then fades out
-  const aboutOpacity = useTransform(scrollYProgress, [0.18, 0.3, 0.5, 0.6], [0, 1, 1, 0]);
-  const aboutY = useTransform(scrollYProgress, [0.18, 0.3], [50, 0]);
-
-  // Features section: fades in after about
-  const featuresOpacity = useTransform(scrollYProgress, [0.55, 0.65, 0.95], [0, 1, 1]);
-  const featuresY = useTransform(scrollYProgress, [0.55, 0.65], [50, 0]);
+  const heroBlurPx = useTransform(heroProgress, [0, 1], [0, 24]);
+  const heroFilter = useTransform(heroBlurPx, (v) => `blur(${v}px)`);
+  const heroOverlayOpacity = useTransform(heroProgress, [0, 0.85], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative">
-      {/* Hero Section - fades out first */}
-      <motion.section 
-        style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative min-h-screen flex items-center pt-32 pb-20 px-4 sm:px-6"
-      >
-        <motion.div
-          style={{ y: useTransform(scrollYProgress, [0, 0.5], [0, 200]) }}
-          className="absolute inset-0 opacity-20"
+    <div className="relative">
+      {/* Hero Section - pinned, blurs + darkens as the page scrolls past it */}
+      <div ref={heroPinRef} className="relative" style={{ height: '100vh' }}>
+        <motion.section
+          style={{ filter: heroFilter }}
+          className="fixed inset-0 z-0 flex items-center pt-32 pb-20 px-4 sm:px-6"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0118] via-[#0a0118]/80 to-[#0a0118]" />
-        </motion.div>
+          <div className="relative z-10 max-w-3xl mx-auto w-full text-center flex flex-col items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="inline-block px-4 py-1.5 bg-[#9d2235]/10 border border-[#9d2235]/20 rounded-sm mb-8">
+                <span className="text-[15px] tracking-[0.2em] text-[#9d2235] font-medium" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Medtech Startup Incubator
+                </span>
+              </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto w-full">
-          <div className="grid md:grid-cols-12 gap-8 items-center">
-            {/* Left side - Text */}
-            <div className="md:col-span-7">
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="inline-block px-4 py-1.5 bg-[#9d2235]/10 border border-[#9d2235]/20 rounded-full mb-8">
-                  <span className="text-[15px] tracking-[0.2em] text-[#9d2235] font-medium" style={{ fontFamily: 'Inter, sans-serif' }}>
-                    MEDTECH STARTUP INCUBATOR
-                  </span>
+              <h1 className="mb-6" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
+                <div className="text-[68px] md:text-[100px] leading-[0.8] text-white">
+                  MEDesign
                 </div>
+              </h1>
 
-                <h1 className="mb-6" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
-                  <div className="text-[68px] md:text-[80px] leading-[0.8] text-[#9d2235] mb-2">
-                    USC
-                  </div>
-                  <div className="text-[68px] md:text-[100px] leading-[0.8] text-white">
-                    MEDesign
-                  </div>
-                </h1>
+              <p className="text-lg md:text-xl text-white mb-3 mx-auto leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
+                USC's Premier Medical Device Design Organization.
+              </p>
 
-                <p className="text-lg md:text-xl text-white/60 mb-10 max-w-xl leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
-                  Transforming healthcare through hands-on medical device innovation
-                </p>
+              <p className="text-lg md:text-xl text-white mb-10 mx-auto leading-relaxed md:whitespace-nowrap" style={{ fontFamily: 'Inter, sans-serif' }}>
+                Transforming healthcare through hands-on medical device innovation
+              </p>
 
-                <div className="flex flex-wrap gap-4">
-                  <Link to="/projects">
-                    <motion.button
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="group px-8 py-4 bg-[#9d2235] rounded-full text-white font-medium flex items-center gap-2 shadow-lg shadow-[#9d2235]/20"
-                      style={{ fontFamily: 'Inter, sans-serif' }}
-                    >
-                      View Projects
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </motion.button>
-                  </Link>
-                  <motion.button
-                    onClick={() => {
-                      const aboutSection = document.getElementById('about');
-                      if (aboutSection) {
-                        const offsetTop = aboutSection.getBoundingClientRect().top + window.scrollY - 20; // 20px offset for navbar
-                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                      }
-                    }}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-white font-medium"
-                    style={{ fontFamily: 'Inter, sans-serif' }}
-                  >
-                    Learn More
-                  </motion.button>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Right side - Decorative card */}
-            <div className="md:col-span-5">
-              <motion.div
-                initial={{ opacity: 0, y: 50, rotate: -5 }}
-                animate={{ opacity: 1, y: 0, rotate: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative mt-12 md:mt-0"
-              >
-                {/* Subtle outer glow */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-[#9d2235]/15 via-[#9d2235]/8 to-[#9d2235]/5 rounded-[2.5rem] blur-[40px] opacity-40" />
-                
-                {/* Glass card */}
-                <div className="relative backdrop-blur-xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/[0.12] rounded-[2rem] p-6 sm:p-8 overflow-hidden shadow-xl">
-                  {/* Subtle inner gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent rounded-[2rem]" />
-                  
-                  {/* Content */}
-                  <div className="relative flex flex-col items-center justify-center text-center">
-                    {/* Heartbeat pattern - minimal animation */}
-                    <motion.div
-                      className="relative mb-6"
-                      animate={{
-                        scale: [1, 1.05, 1],
-                      }}
-                      transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      {/* Glowing effect */}
-                      <div className="absolute inset-0 blur-3xl bg-[#9d2235]/40 rounded-full scale-125" />
-                      
-                      {/* Heartbeat pattern - responsive sizing */}
-                      <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 flex items-center justify-center">
-                        <img 
-                          src={heartbeatPattern} 
-                          alt="Heartbeat Pattern" 
-                          className="w-full h-full object-contain"
-                          style={{
-                            filter: 'drop-shadow(0 0 20px rgba(157, 34, 53, 0.8)) drop-shadow(0 0 40px rgba(157, 34, 53, 0.4))'
-                          }}
-                        />
-                      </div>
-                    </motion.div>
-                    
-                    <div className="space-y-5 sm:space-y-6 w-full">
-                      {/* Stat 1 */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6, duration: 0.6 }}
-                        className="flex flex-col items-center gap-2"
-                      >
-                        <div className="relative">
-                          <div className="absolute inset-0 blur-md bg-[#9d2235]/50 rounded-full" />
-                          <div className="relative w-3 h-3 rounded-full bg-[#9d2235] shadow-lg shadow-[#9d2235]/50" />
-                        </div>
-                        <div>
-                          <div className="text-xl sm:text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Archivo Black, sans-serif' }}>                            
-                            Founded in 2015
-                          </div>
-                          <div className="text-sm text-white/40" style={{ fontFamily: 'Inter, sans-serif' }}>
-                            10+ years of innovation
-                          </div>
-                        </div>
-                      </motion.div>
-                      
-                      {/* Stat 2 */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.75, duration: 0.6 }}
-                        className="flex flex-col items-center gap-2"
-                      >
-                        <div className="relative">
-                          <div className="absolute inset-0 blur-md bg-[#ffcc00]/50 rounded-full" />
-                          <div className="relative w-3 h-3 rounded-full bg-[#ffcc00] shadow-lg shadow-[#ffcc00]/50" />
-                        </div>
-                        <div>
-                          <div className="text-xl sm:text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
-                            50+ Active Members
-                          </div>
-                          <div className="text-sm text-white/40" style={{ fontFamily: 'Inter, sans-serif' }}>
-                            Diverse backgrounds
-                          </div>
-                        </div>
-                      </motion.div>
-                      
-                      {/* Stat 3 */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.9, duration: 0.6 }}
-                        className="flex flex-col items-center gap-2"
-                      >
-                        <div className="relative">
-                          <div className="absolute inset-0 blur-md bg-white/50 rounded-full" />
-                          <div className="relative w-3 h-3 rounded-full bg-white shadow-lg shadow-white/50" />
-                        </div>
-                        <div>
-                          <div className="text-xl sm:text-2xl font-bold text-white mb-1" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
-                            40+ Projects Launched
-                          </div>
-                          <div className="text-sm text-white/40" style={{ fontFamily: 'Inter, sans-serif' }}>
-                            Real-world impact
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+              <div className="flex justify-center">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScgKzQqDRFuLBFW52iPGPvB7fC86KuCEkrTX5nL5x4dUa3Qmw/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 text-lg md:text-xl text-white font-semibold transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(157,34,53,0.8)]"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  Apply F26
+                  <ArrowRight size={18} className="text-[#9d2235] group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </motion.div>
           </div>
-        </div>
-      </motion.section>
+        </motion.section>
 
-      {/* About Section - broken grid layout */}
-      <AboutSection opacity={aboutOpacity} y={aboutY} />
+        {/* Darkening overlay - covers the pinned hero and the aura behind it */}
+        <motion.div
+          className="fixed inset-0 z-[1] bg-black pointer-events-none"
+          style={{ opacity: heroOverlayOpacity }}
+        />
 
-      {/* Features - tilted cards */}
-      <FeaturesSection opacity={featuresOpacity} y={featuresY} />
+        {/* Gradient fade at the bottom of the pin zone - smooths the seam
+            where the solid-black content below meets the hero above,
+            instead of a hard-edged cut, in both scroll directions. */}
+        <div className="absolute bottom-0 left-0 right-0 h-[50vh] z-[2] bg-gradient-to-b from-transparent to-black pointer-events-none" />
+      </div>
 
-      {/* Footer */}
-      <Footer />
+      {/* Scrollable content - slides up over the pinned hero */}
+      <div className="relative z-10 bg-black">
+        <AboutSection />
+        <FeaturesSection />
+        <Footer />
+      </div>
     </div>
   );
 }
 
-function AboutSection({ opacity, y }: { opacity: any; y: any }) {
+function AboutSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
   return (
-    <motion.section 
+    <motion.section
+      ref={ref}
       id="about"
-      style={{ opacity, y }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className="relative min-h-screen flex items-center py-32 px-6"
     >
       <div className="max-w-[1400px] mx-auto">
@@ -248,13 +117,7 @@ function AboutSection({ opacity, y }: { opacity: any; y: any }) {
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
                 ABOUT<br />US
               </h2>
-              <motion.div 
-                className="w-16 h-1 bg-[#9d2235]"
-                initial={{ width: 0 }}
-                animate={{ width: 64 }}
-                transition={{ duration: 1.2, delay: 0.4 }}
-              />
-              <p className="mt-6 text-sm text-white/40 tracking-wide" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <p className="text-sm text-white/40 tracking-wide" style={{ fontFamily: 'Inter, sans-serif' }}>
                 EST. 2015 / LOS ANGELES
               </p>
             </div>
@@ -267,7 +130,7 @@ function AboutSection({ opacity, y }: { opacity: any; y: any }) {
             transition={{ duration: 1.4, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="md:col-span-8"
           >
-            <div className="border-l-2 border-[#9d2235]/40 pl-6 md:pl-8">
+            <div>
               <p className="text-base md:text-lg leading-relaxed text-white/70 mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>
                 <span className="text-[#9d2235] font-medium">Founded in 2015</span>, MEDesign provides students with
                 hands-on medical device design experience by entering medical device design competitions, participating in
@@ -285,9 +148,9 @@ function AboutSection({ opacity, y }: { opacity: any; y: any }) {
             </div>
 
             {/* Stats row - no cards, just numbers */}
-            <div className="flex flex-wrap gap-x-10 gap-y-6 mt-12 pl-6 md:pl-8">
+            <div className="flex flex-wrap gap-x-10 gap-y-6 mt-12">
               {[
-                { label: 'Years Active', value: '10+' },
+                { label: 'Founded', value: '2015' },
                 { label: 'Projects', value: '40+' },
                 { label: 'Members', value: '50+' },
               ].map((stat, idx) => (
@@ -313,7 +176,7 @@ function AboutSection({ opacity, y }: { opacity: any; y: any }) {
   );
 }
 
-function FeaturesSection({ opacity, y }: { opacity: any; y: any }) {
+function FeaturesSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
@@ -350,9 +213,8 @@ function FeaturesSection({ opacity, y }: { opacity: any; y: any }) {
   ];
 
   return (
-    <motion.section 
+    <motion.section
       ref={ref}
-      style={{ opacity, y }}
       className="relative py-32 px-6"
     >
       <div className="max-w-[1400px] mx-auto relative">
@@ -389,7 +251,7 @@ function FeaturesSection({ opacity, y }: { opacity: any; y: any }) {
                 ease: [0.22, 1, 0.36, 1]
               }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group bg-white/[0.02] border border-white/[0.05] rounded-3xl p-5 relative overflow-hidden"
+              className="group bg-white/[0.02] border border-white/[0.05] rounded-sm p-5 relative overflow-hidden"
             >
               {/* Accent line */}
               <div
@@ -398,7 +260,7 @@ function FeaturesSection({ opacity, y }: { opacity: any; y: any }) {
               />
 
               <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
+                className="w-12 h-12 rounded-sm flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
                 style={{ backgroundColor: `${feature.color}15` }}
               >
                 <feature.icon size={36} style={{ color: feature.color }} strokeWidth={1.5} />

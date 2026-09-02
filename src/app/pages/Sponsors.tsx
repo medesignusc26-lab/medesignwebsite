@@ -50,32 +50,22 @@ function SponsorsSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="mb-16 max-w-5xl mx-auto px-4"
+          className="mb-16 max-w-5xl mx-auto px-4 text-center"
         >
-          <div className="relative backdrop-blur-md bg-white/[0.05] border border-white/[0.12] rounded-3xl p-6 md:p-12 hover:bg-white/[0.07] hover:border-[#9d2235]/30 transition-all duration-300">
-            {/* Glow effect */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#9d2235]/10 to-transparent opacity-50" />
-            
-            <div className="relative z-10 text-center">
-              <div className="relative inline-block mb-4 px-6 md:px-12 py-6 md:py-8 rounded-2xl bg-white/20 backdrop-blur-sm max-w-full">
-                {/* Subtle white glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-white blur-xl opacity-20" />
-                
-                <img 
-                  src={amiUSCLogo} 
-                  alt="AMI USC - Alfred E. Mann Institute for Biomedical Engineering" 
-                  className="relative z-10 max-w-full w-full h-auto"
-                  style={{ maxWidth: '800px' }}
-                />
-              </div>
-              <p className="text-white/50 text-xs md:text-sm tracking-[0.2em]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                PREMIER SPONSOR
-              </p>
-            </div>
+          <div className="relative inline-block mb-4 px-6 md:px-12 py-6 md:py-8 rounded-sm bg-white/20 backdrop-blur-sm max-w-full">
+            {/* Subtle white glow effect */}
+            <div className="absolute inset-0 rounded-sm bg-white blur-xl opacity-20" />
 
-            {/* Accent line */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#9d2235] to-transparent rounded-b-3xl" />
+            <img
+              src={amiUSCLogo}
+              alt="AMI USC - Alfred E. Mann Institute for Biomedical Engineering"
+              className="relative z-10 max-w-full w-full h-auto"
+              style={{ maxWidth: '800px' }}
+            />
           </div>
+          <p className="text-white/50 text-xs md:text-sm tracking-[0.2em]" style={{ fontFamily: 'Inter, sans-serif' }}>
+            PREMIER SPONSOR
+          </p>
         </motion.div>
 
         {/* Animated scrolling individual sponsors - infinite loop */}
@@ -100,7 +90,7 @@ function SponsorsSection() {
             {[...individualSponsors.slice(0, 3), ...individualSponsors.slice(0, 3), ...individualSponsors.slice(0, 3), ...individualSponsors.slice(0, 3)].map((sponsor, idx) => (
               <div
                 key={idx}
-                className="relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-2xl px-6 py-6 hover:bg-white/[0.05] hover:border-[#9d2235]/30 transition-all duration-300 flex-shrink-0 min-w-[300px]"
+                className="relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-sm px-6 py-6 hover:bg-white/[0.05] hover:border-[#9d2235]/30 transition-all duration-300 flex-shrink-0 min-w-[300px]"
               >
                 <p 
                   className="text-xs tracking-[0.15em] text-[#9d2235]/70 mb-2 uppercase font-medium" 
@@ -138,7 +128,7 @@ function SponsorsSection() {
             {[...individualSponsors.slice(3, 6), ...individualSponsors.slice(3, 6), ...individualSponsors.slice(3, 6), ...individualSponsors.slice(3, 6)].map((sponsor, idx) => (
               <div
                 key={idx}
-                className="relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-2xl px-6 py-6 hover:bg-white/[0.05] hover:border-[#9d2235]/30 transition-all duration-300 flex-shrink-0 min-w-[300px]"
+                className="relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-sm px-6 py-6 hover:bg-white/[0.05] hover:border-[#9d2235]/30 transition-all duration-300 flex-shrink-0 min-w-[300px]"
               >
                 <p 
                   className="text-xs tracking-[0.15em] text-[#9d2235]/70 mb-2 uppercase font-medium" 
@@ -178,7 +168,7 @@ function SponsorsSection() {
             {[...individualSponsors, ...individualSponsors, ...individualSponsors, ...individualSponsors].map((sponsor, idx) => (
               <div
                 key={idx}
-                className="relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-2xl px-8 md:px-10 py-8 md:py-10 hover:bg-white/[0.05] hover:border-[#9d2235]/30 transition-all duration-300 flex-shrink-0 min-w-[400px] md:min-w-[480px]"
+                className="relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-sm px-8 md:px-10 py-8 md:py-10 hover:bg-white/[0.05] hover:border-[#9d2235]/30 transition-all duration-300 flex-shrink-0 min-w-[400px] md:min-w-[480px]"
               >
                 <p 
                   className="text-xs tracking-[0.15em] text-[#9d2235]/70 mb-3 uppercase font-medium" 
@@ -206,7 +196,7 @@ function SponsorsSection() {
           transition={{ duration: 1.2, delay: 0.4 }}
           className="mt-16 md:mt-20 text-center px-4"
         >
-          <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12 max-w-3xl mx-auto">
+          <div className="bg-white/[0.02] border border-white/[0.05] rounded-sm p-8 md:p-12 max-w-3xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-black mb-4" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
               Become a <span className="text-[#9d2235]">Sponsor</span>
             </h3>
@@ -217,7 +207,7 @@ function SponsorsSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 md:px-8 py-3 md:py-4 bg-[#9d2235] rounded-full text-white font-medium shadow-lg shadow-[#9d2235]/20 text-sm md:text-base"
+              className="px-6 md:px-8 py-3 md:py-4 bg-[#9d2235] rounded-sm text-white font-medium shadow-lg shadow-[#9d2235]/20 text-sm md:text-base"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               Get in Touch

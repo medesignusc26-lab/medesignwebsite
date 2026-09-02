@@ -190,7 +190,7 @@ function ExecutiveBoard() {
                 delay: 0.3 + idx * 0.08,
                 ease: [0.22, 1, 0.36, 1]
               }}
-              className={`group bg-white/[0.02] rounded-3xl overflow-hidden relative transition-all duration-200 ease-out ${
+              className={`group bg-white/[0.02] rounded-sm overflow-hidden relative transition-all duration-200 ease-out ${
                 member.cutout ? 'hover:scale-110 hover:-translate-y-3' : ''
               }`}
               style={{
@@ -200,11 +200,11 @@ function ExecutiveBoard() {
               {/* Animated border for cutout cards */}
               {member.cutout && (
                 <div
-                  className="absolute inset-0 rounded-3xl pointer-events-none z-0 border border-white/[0.05] group-hover:opacity-0 transition-opacity duration-200"
+                  className="absolute inset-0 rounded-sm pointer-events-none z-0 border border-white/[0.05] group-hover:opacity-0 transition-opacity duration-200"
                 />
               )}
 
-              {!member.cutout && <div className="border border-white/[0.05] absolute inset-0 rounded-3xl pointer-events-none" />}
+              {!member.cutout && <div className="border border-white/[0.05] absolute inset-0 rounded-sm pointer-events-none" />}
 
               {/* Image */}
               {member.cutout ? (

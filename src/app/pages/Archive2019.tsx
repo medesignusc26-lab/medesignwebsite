@@ -63,7 +63,7 @@ export default function Archive2019() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-6"
           >
-            <div className="inline-block px-4 py-2 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-full text-sm tracking-wide font-medium text-[#9d2235]" style={{ fontFamily: 'Inter, sans-serif' }}>
+            <div className="inline-block px-4 py-2 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-sm text-sm tracking-wide font-medium text-[#9d2235]" style={{ fontFamily: 'Inter, sans-serif' }}>
               Academic Year
             </div>
           </motion.div>
@@ -89,7 +89,7 @@ export default function Archive2019() {
                   project.onHold 
                     ? 'bg-gradient-to-br from-[#9d2235]/10 to-white/[0.03] border-[#9d2235]/30' 
                     : 'bg-white/[0.03] border-white/[0.08]'
-                } border rounded-3xl p-8 hover:bg-white/[0.06] hover:border-[#9d2235]/40 transition-all duration-500 overflow-hidden cursor-pointer h-full`}
+                } border rounded-sm p-8 hover:bg-white/[0.06] hover:border-[#9d2235]/40 transition-all duration-500 overflow-hidden cursor-pointer h-full`}
               >
                 {/* Gradient glow on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -106,7 +106,7 @@ export default function Archive2019() {
                   >
                     <div className="relative">
                       <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 blur-lg opacity-50" />
-                      <div className="relative px-3 py-1.5 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full text-xs font-black uppercase tracking-wide text-black shadow-lg flex items-center gap-1.5" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
+                      <div className="relative px-3 py-1.5 bg-gradient-to-br from-orange-400 to-orange-600 rounded-sm text-xs font-black uppercase tracking-wide text-black shadow-lg flex items-center gap-1.5" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
                         <Pause size={14} strokeWidth={3} />
                         On Hold
                       </div>
@@ -172,7 +172,7 @@ export default function Archive2019() {
           transition={{ duration: 1.2, delay: 1 }}
           className="mt-20"
         >
-          <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12">
+          <div className="bg-white/[0.02] border border-white/[0.05] rounded-sm p-12">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {[
                 { number: '3', label: 'Projects Completed' },

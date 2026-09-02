@@ -68,7 +68,7 @@ export default function ProjectDetail() {
             >
               <div className="inline-block relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 blur-lg opacity-50" />
-                <div className="relative px-4 py-2 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full text-sm font-black uppercase tracking-wide text-black shadow-lg flex items-center gap-2" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
+                <div className="relative px-4 py-2 bg-gradient-to-br from-orange-400 to-orange-600 rounded-sm text-sm font-black uppercase tracking-wide text-black shadow-lg flex items-center gap-2" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
                   <Pause size={18} strokeWidth={3} />
                   On Hold
                 </div>
@@ -86,7 +86,7 @@ export default function ProjectDetail() {
             >
               <div className="inline-block relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 blur-lg opacity-50" />
-                <div className="relative px-4 py-2 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full text-sm font-black uppercase tracking-wide text-black shadow-lg flex items-center gap-2" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
+                <div className="relative px-4 py-2 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-sm text-sm font-black uppercase tracking-wide text-black shadow-lg flex items-center gap-2" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
                   <Award size={18} strokeWidth={3} />
                   Best Design Award
                 </div>
@@ -101,7 +101,7 @@ export default function ProjectDetail() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mb-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-full text-sm tracking-wide font-medium text-[#9d2235]" style={{ fontFamily: 'Inter, sans-serif' }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-sm text-sm tracking-wide font-medium text-[#9d2235]" style={{ fontFamily: 'Inter, sans-serif' }}>
               <Calendar size={16} strokeWidth={2} />
               {project.year}
             </div>
@@ -118,9 +118,9 @@ export default function ProjectDetail() {
           </h1>
 
           {/* Team Lead Info */}
-          <div className="backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 inline-block">
+          <div className="backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-sm p-6 inline-block">
             <div className="flex items-center gap-3">
-              <div className={`w-12 h-12 rounded-xl ${
+              <div className={`w-12 h-12 rounded-sm ${
                 project.onHold
                   ? 'bg-orange-400/20 border-orange-400/30'
                   : project.bestDesign 
@@ -146,7 +146,7 @@ export default function ProjectDetail() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.4 }}
-          className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12"
+          className="bg-white/[0.02] border border-white/[0.05] rounded-sm p-8 md:p-12"
         >
           {/* Section Title */}
           <div className="mb-8">
@@ -184,7 +184,7 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1.2, delay: 0.6 }}
-            className="mt-12 bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12"
+            className="mt-12 bg-white/[0.02] border border-white/[0.05] rounded-sm p-8 md:p-12"
           >
             <div className="mb-8">
               <h2 
@@ -203,7 +203,7 @@ export default function ProjectDetail() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
-                  className="flex items-center gap-3 p-4 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:bg-white/[0.04] transition-all duration-300"
+                  className="flex items-center gap-3 p-4 bg-white/[0.02] border border-white/[0.05] rounded-sm hover:bg-white/[0.04] transition-all duration-300"
                 >
                   <div className="w-2 h-2 rounded-full bg-[#9d2235]" />
                   <p className="text-white/80" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -226,7 +226,7 @@ export default function ProjectDetail() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-[#9d2235] rounded-full text-white font-medium shadow-lg hover:shadow-[#9d2235]/50 transition-all duration-300"
+              className="px-8 py-4 bg-[#9d2235] rounded-sm text-white font-medium shadow-lg hover:shadow-[#9d2235]/50 transition-all duration-300"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               View More Projects

@@ -87,7 +87,7 @@ export default function Archive2023() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-6"
           >
-            <div className="inline-block px-4 py-2 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-full text-sm tracking-wide font-medium text-[#9d2235]" style={{ fontFamily: 'Inter, sans-serif' }}>
+            <div className="inline-block px-4 py-2 bg-[#9d2235]/20 border border-[#9d2235]/30 rounded-sm text-sm tracking-wide font-medium text-[#9d2235]" style={{ fontFamily: 'Inter, sans-serif' }}>
               Academic Year
             </div>
           </motion.div>
@@ -109,7 +109,7 @@ export default function Archive2023() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 + idx * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="group relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-3xl overflow-hidden hover:bg-white/[0.06] hover:border-[#9d2235]/40 transition-all duration-500 cursor-pointer"
+                className="group relative backdrop-blur-md bg-white/[0.03] border border-white/[0.08] rounded-sm overflow-hidden hover:bg-white/[0.06] hover:border-[#9d2235]/40 transition-all duration-500 cursor-pointer"
               >
                 {/* Gradient glow on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -154,7 +154,7 @@ export default function Archive2023() {
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={isInView ? { opacity: 1, scale: 1 } : {}}
                           transition={{ duration: 0.3, delay: 0.4 + idx * 0.1 + memberIdx * 0.05 }}
-                          className="px-3 py-1.5 bg-white/[0.05] border border-white/[0.08] rounded-full text-xs text-white/70 hover:bg-white/[0.08] hover:text-white hover:border-[#9d2235]/30 transition-all duration-200"
+                          className="px-3 py-1.5 bg-white/[0.05] border border-white/[0.08] rounded-sm text-xs text-white/70 hover:bg-white/[0.08] hover:text-white hover:border-[#9d2235]/30 transition-all duration-200"
                           style={{ fontFamily: 'Inter, sans-serif' }}
                         >
                           {member}
@@ -178,7 +178,7 @@ export default function Archive2023() {
           transition={{ duration: 1.2, delay: 1 }}
           className="mt-20"
         >
-          <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12">
+          <div className="bg-white/[0.02] border border-white/[0.05] rounded-sm p-12">
             <div className="grid md:grid-cols-2 gap-8 text-center">
               {[
                 { number: '7', label: 'Projects Completed' },

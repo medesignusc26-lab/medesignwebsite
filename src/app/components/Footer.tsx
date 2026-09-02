@@ -87,7 +87,7 @@ export function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02, x: 3 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#9d2235] rounded-full text-white text-sm font-medium"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#9d2235] rounded-sm text-white text-sm font-medium"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               Apply now
