@@ -33,8 +33,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="inline-block px-4 py-1.5 bg-[#9d2235]/10 border border-[#9d2235]/20 rounded-sm mb-8">
-                <span className="text-[15px] tracking-[0.2em] text-[#9d2235] font-medium" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <div className="inline-block px-4 py-1.5 bg-black/50 backdrop-blur-sm border border-[#9d2235]/50 rounded-sm mb-8">
+                <span className="text-[15px] tracking-[0.2em] text-[#ff3355] font-semibold" style={{ fontFamily: 'Inter, sans-serif' }}>
                   Medtech Startup Incubator
                 </span>
               </div>
