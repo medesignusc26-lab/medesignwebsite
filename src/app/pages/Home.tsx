@@ -113,7 +113,7 @@ function AboutSection() {
             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
             className="md:col-span-4"
           >
-            <div className="sticky top-32">
+            <div className="sticky top-32 text-center md:text-left">
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
                 ABOUT<br />US
               </h2>

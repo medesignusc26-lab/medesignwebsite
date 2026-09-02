@@ -226,8 +226,8 @@ export default function Root() {
             )}
           </div>
 
-          {/* Ambient aurora background - DESKTOP ONLY, fades itself out on scroll */}
-          {!isMobile && <AuroraBackground />}
+          {/* Ambient aurora background - fades itself out on scroll */}
+          <AuroraBackground />
         </>
       )}
 
@@ -281,7 +281,7 @@ export default function Root() {
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
-                className="md:hidden mt-4 pt-4 border-t border-white/10"
+                className="md:hidden mt-4 pt-4 px-4 pb-2 border-t border-white/10 bg-black/95 backdrop-blur-md rounded-sm"
               >
                 {[
                   { name: 'Home', path: '/' },
