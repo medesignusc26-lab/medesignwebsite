@@ -14,6 +14,19 @@ import eddieCutout from '@/assets/7cc6d44b3a9d5e135b28ff9ee59fc2dbebac2164.png';
 import seanLeeCutout from '@/assets/a852776e8c80486db79a373f3f7c975bb02aeb41.png';
 import toshiCutout from '@/assets/2b8db8cc73e80f06bc5bbf62851070a63e768191.png';
 
+// New eboard images (place the attached PNGs into src/assets/ with these names)
+import sarahNew from '@/assets/sarah.png';
+import anayNew from '@/assets/anay.png';
+import toshiNew from '@/assets/toshi.png';
+import chloeNew from '@/assets/chloe.png';
+import devakiNew from '@/assets/devaki.png';
+import amelieNew from '@/assets/amelie.png';
+import mahletNew from '@/assets/mahlet.png';
+import katieNew from '@/assets/katie.png';
+import virenNew from '@/assets/viren.png';
+// use chloe.png as placeholder for Anaaya per request
+import anaayaPlaceholder from '@/assets/chloe.png';
+
 export default function Team() {
   return (
     <div className="relative">
@@ -39,8 +52,8 @@ function ExecutiveBoard() {
       year: 'Junior',
       email: '',
       linkedin: '#',
-      image: sarahCutout,
-      cutout: sarahCutout,
+      image: sarahNew,
+      cutout: sarahNew,
     },
     {
       name: 'Anay Gupta',
@@ -50,8 +63,8 @@ function ExecutiveBoard() {
       year: 'Senior',
       email: '',
       linkedin: '#',
-      image: sammitaCutout,
-      cutout: sammitaCutout,
+      image: anayNew,
+      cutout: anayNew,
     },
     {
       name: 'Toshi Nagai',
@@ -61,8 +74,8 @@ function ExecutiveBoard() {
       year: 'Sophomore',
       email: '',
       linkedin: '#',
-      image: toshiCutout,
-      cutout: toshiCutout,
+      image: toshiNew,
+      cutout: toshiNew,
     },
     {
       name: 'Chloe Xia',
@@ -72,8 +85,8 @@ function ExecutiveBoard() {
       year: 'Junior',
       email: '',
       linkedin: '#',
-      image: jessicaCutout,
-      cutout: jessicaCutout,
+      image: chloeNew,
+      cutout: chloeNew,
     },
     {
       name: 'Devaki Menon',
@@ -83,8 +96,8 @@ function ExecutiveBoard() {
       year: 'Junior',
       email: '',
       linkedin: '#',
-      image: eddieCutout,
-      cutout: eddieCutout,
+      image: devakiNew,
+      cutout: devakiNew,
     },
     {
       name: 'Amelie Tangtam',
@@ -94,8 +107,8 @@ function ExecutiveBoard() {
       year: 'Junior',
       email: '',
       linkedin: '#',
-      image: audreyChangCutout,
-      cutout: audreyChangCutout,
+      image: amelieNew,
+      cutout: amelieNew,
     },
     {
       name: 'Mahlet Messay',
@@ -105,8 +118,8 @@ function ExecutiveBoard() {
       year: 'Junior',
       email: '',
       linkedin: '#',
-      image: pacoCutout,
-      cutout: pacoCutout,
+      image: mahletNew,
+      cutout: mahletNew,
     },
     {
       name: 'Katie Spitzer',
@@ -116,8 +129,8 @@ function ExecutiveBoard() {
       year: 'Sophomore',
       email: '',
       linkedin: '#',
-      image: sammitaCutout,
-      cutout: sammitaCutout,
+      image: katieNew,
+      cutout: katieNew,
     },
     {
       name: 'Viren Mehta',
@@ -127,8 +140,8 @@ function ExecutiveBoard() {
       year: 'Senior',
       email: '',
       linkedin: '#',
-      image: ishanniCutout,
-      cutout: ishanniCutout,
+      image: virenNew,
+      cutout: virenNew,
     },
     {
       name: 'Anaaya Singhania',
@@ -138,9 +151,9 @@ function ExecutiveBoard() {
       year: 'Sophomore',
       email: '',
       linkedin: '#',
-      // placeholder: replace with /Users/toshin/Desktop/USC/MEDesign/chloe.png when available
-      image: jessicaCutout,
-      cutout: jessicaCutout,
+      // using chloe.png as placeholder per request
+      image: anaayaPlaceholder,
+      cutout: anaayaPlaceholder,
     },
   ];
 
