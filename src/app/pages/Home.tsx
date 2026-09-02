@@ -1,7 +1,8 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'motion/react';
-import { Users, BookOpen, Briefcase, Mail, Linkedin, Facebook, Instagram, ArrowRight } from 'lucide-react';
+import { Users, BookOpen, Briefcase, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
+import { Footer } from '../components/Footer';
 import medesignLogo from '@/assets/179d2a20003c71b4bead4df1dd9ff60e8e6a4edf.png';
 import heartbeatPattern from '@/assets/d65ffa27844b18f43e95a2810cbd35d1a78b65f0.png';
 
@@ -35,11 +36,6 @@ export default function Home() {
           style={{ y: useTransform(scrollYProgress, [0, 0.5], [0, 200]) }}
           className="absolute inset-0 opacity-20"
         >
-          <img
-            src=""
-            alt="MEDesign Team"
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0118] via-[#0a0118]/80 to-[#0a0118]" />
         </motion.div>
 
@@ -271,39 +267,37 @@ function AboutSection({ opacity, y }: { opacity: any; y: any }) {
             transition={{ duration: 1.4, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="md:col-span-8"
           >
-            <div className="backdrop-blur-md bg-white/[0.02] border border-white/[0.05] rounded-3xl p-10 md:p-12">
+            <div className="border-l-2 border-[#9d2235]/40 pl-6 md:pl-8">
               <p className="text-base md:text-lg leading-relaxed text-white/70 mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>
-                <span className="text-[#9d2235] font-medium">Founded in 2015</span>, MEDesign provides students with 
-                hands-on medical device design experience by entering medical device design competitions, participating in 
+                <span className="text-[#9d2235] font-medium">Founded in 2015</span>, MEDesign provides students with
+                hands-on medical device design experience by entering medical device design competitions, participating in
                 make-a-thons, and taking on independent medical device projects.
               </p>
               <p className="text-base md:text-lg leading-relaxed text-white/70 mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>
-                We lead students through the entire process of creating a medical device from customer discovery to design 
-                process, patents, and eventually product launching. MEDesign invites prestigious speakers to talk to our 
+                We lead students through the entire process of creating a medical device from customer discovery to design
+                process, patents, and eventually product launching. MEDesign invites prestigious speakers to talk to our
                 club members about the medical device industry. Some of our previous guests include <span className="text-white font-medium">BME Professor Dr. Loeb</span> and <span className="text-white font-medium">Dr. Larry Yin</span> from LA Children's Hospital.
               </p>
               <p className="text-base md:text-lg leading-relaxed text-white/70" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Our club takes pride in the <span className="text-white font-medium">diversity of our students' interests</span> — 
+                Our club takes pride in the <span className="text-white font-medium">diversity of our students' interests</span> —
                 our members include business students, neuroscience majors, engineers, and even music majors! Join us at our next meeting!
               </p>
             </div>
 
-            {/* Stats cards - irregular placement */}
-            <div className="grid grid-cols-3 gap-4 mt-8">
+            {/* Stats row - no cards, just numbers */}
+            <div className="flex flex-wrap gap-x-10 gap-y-6 mt-12 pl-6 md:pl-8">
               {[
-                { label: 'Years Active', value: '10+', color: '#9d2235' },
-                { label: 'Projects', value: '40+', color: '#9d2235' },
-                { label: 'Members', value: '50+', color: '#9d2235' },
+                { label: 'Years Active', value: '10+' },
+                { label: 'Projects', value: '40+' },
+                { label: 'Members', value: '50+' },
               ].map((stat, idx) => (
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 + idx * 0.1 }}
-                  style={{ marginTop: `${idx * 12}px` }}
-                  className="backdrop-blur-md bg-white/[0.02] border border-white/[0.05] rounded-2xl p-6 text-center"
                 >
-                  <div className="text-3xl font-bold mb-1" style={{ color: stat.color, fontFamily: 'Archivo Black, sans-serif' }}>
+                  <div className="text-3xl md:text-4xl font-bold mb-1 text-[#9d2235]" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
                     {stat.value}
                   </div>
                   <div className="text-xs text-white/40 uppercase tracking-wider" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -395,7 +389,7 @@ function FeaturesSection({ opacity, y }: { opacity: any; y: any }) {
                 ease: [0.22, 1, 0.36, 1]
               }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group backdrop-blur-md bg-white/[0.02] border border-white/[0.05] rounded-3xl p-5 relative overflow-hidden"
+              className="group bg-white/[0.02] border border-white/[0.05] rounded-3xl p-5 relative overflow-hidden"
             >
               {/* Accent line */}
               <div
@@ -457,115 +451,5 @@ function FeaturesSection({ opacity, y }: { opacity: any; y: any }) {
         </div>
       </div>
     </motion.section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="relative py-20 px-6 border-t border-white/[0.05] bg-gradient-to-b from-black via-[#9d2235]/5 to-[#9d2235]/10">
-      {/* Subtle red glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#9d2235]/20 via-transparent to-transparent pointer-events-none" />
-      
-      <div className="max-w-[1400px] mx-auto relative z-10">
-        <div className="grid md:grid-cols-12 gap-12 mb-16">
-          <div className="md:col-span-5">
-            <div className="text-2xl font-bold mb-4" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
-              <span className="text-white">MEDesign</span>
-            </div>
-            <p className="text-sm text-white/50 mb-6" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Empowering the next generation of medical device innovators at USC
-            </p>
-            <div className="flex gap-3">
-              {[
-                { icon: Linkedin, href: 'https://www.linkedin.com/company/medesign-usc' },
-                { icon: Facebook, href: 'https://www.facebook.com/medesign.usc/' },
-                { icon: Instagram, href: 'https://www.instagram.com/medesign.usc/?hl=en' },
-                { icon: Mail, href: 'mailto:medesign@usc.edu' },
-              ].map((social, idx) => (
-                <motion.a
-                  key={idx}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -3, scale: 1.05 }}
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:border-[#ff006e]/50 transition-colors"
-                >
-                  <social.icon size={18} />
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
-          <div className="md:col-span-3">
-            <h4 className="font-bold mb-4 text-sm" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
-              EXPLORE
-            </h4>
-            <div className="space-y-2">
-              {[
-                { label: 'Projects', to: '/projects' },
-                { label: 'Team', to: '/team' },
-                { label: 'Sponsors', to: '/sponsors' },
-                { label: 'Contact', to: 'mailto:medesign@usc.edu' },
-              ].map((link) =>
-                link.to.startsWith('mailto:') ? (
-                  <a
-                    key={link.label}
-                    href={link.to}
-                    className="block text-sm text-white/50 hover:text-white transition-colors"
-                    style={{ fontFamily: 'Inter, sans-serif' }}
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={link.label}
-                    to={link.to}
-                    className="block text-sm text-white/50 hover:text-white transition-colors"
-                    style={{ fontFamily: 'Inter, sans-serif' }}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              )}
-            </div>
-          </div>
-
-          <div className="md:col-span-4">
-            <h4 className="font-bold mb-4 text-sm" style={{ fontFamily: 'Archivo Black, sans-serif' }}>
-              STAY UPDATED
-            </h4>
-            <p className="text-xs text-white/50 mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Get notified about events, projects, and opportunities
-            </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-2.5 bg-white/5 border border-white/10 rounded-full text-sm focus:outline-none focus:border-[#ff006e]/50 transition-colors"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-2.5 bg-[#9d2235] rounded-full text-white text-sm font-medium"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                Join
-              </motion.button>
-            </div>
-          </div>
-        </div>
-
-        <div className="pt-8 border-t border-white/[0.05] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-white/30" style={{ fontFamily: 'Inter, sans-serif' }}>
-            © 2026 USC MEDesign. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-xs text-white/30" style={{ fontFamily: 'Inter, sans-serif' }}>
-            <a href="#" className="hover:text-white/60 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white/60 transition-colors">Terms</a>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }

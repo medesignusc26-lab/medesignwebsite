@@ -146,7 +146,7 @@ export default function ProjectDetail() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.4 }}
-          className="backdrop-blur-md bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12"
+          className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12"
         >
           {/* Section Title */}
           <div className="mb-8">
@@ -184,7 +184,7 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1.2, delay: 0.6 }}
-            className="mt-12 backdrop-blur-md bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12"
+            className="mt-12 bg-white/[0.02] border border-white/[0.05] rounded-3xl p-8 md:p-12"
           >
             <div className="mb-8">
               <h2 

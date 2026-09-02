@@ -160,7 +160,7 @@ export default function Archive2020() {
           transition={{ duration: 1.2, delay: 1 }}
           className="mt-20"
         >
-          <div className="backdrop-blur-md bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12">
+          <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {[
                 { number: '8', label: 'Projects Completed' },

@@ -179,7 +179,7 @@ export default function Archive() {
                 </Link>
               ) : (
                 <motion.div
-                  className="group relative backdrop-blur-md bg-white/[0.02] border border-white/[0.08] rounded-3xl p-8 overflow-hidden opacity-60"
+                  className="group relative bg-white/[0.02] border border-white/[0.08] rounded-3xl p-8 overflow-hidden opacity-60"
                 >
                   {/* Coming Soon Badge */}
                   <motion.div
@@ -232,7 +232,7 @@ export default function Archive() {
           transition={{ duration: 1.2, delay: 0.8 }}
           className="mt-20 max-w-4xl mx-auto"
         >
-          <div className="backdrop-blur-md bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12">
+          <div className="bg-white/[0.02] border border-white/[0.05] rounded-3xl p-12">
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {[
                 { number: '50+', label: 'Total Projects' },
